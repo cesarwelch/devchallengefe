@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Basic from "./table/trackertable";
+import Button from 'react-bootstrap/Button';
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
 
         <header className="App-header">
          <Basic />
+         <Button variant="primary">Primary</Button>
         </header>
  
       </div>

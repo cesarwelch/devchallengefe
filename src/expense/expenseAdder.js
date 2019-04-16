@@ -1,8 +1,7 @@
+import swal from 'sweetalert';
 import React, { useState } from "react";
-import MaterialTable from 'material-table'
 
 export default function() {
-
 
   return (
    <div style={{ maxWidth: '100%' }}>
