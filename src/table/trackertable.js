@@ -1,122 +1,21 @@
 import React, { useState } from "react";
-
-import { Input } from "../components/Styles";
-import Table from "../components/Table";
+import MaterialTable from 'material-table'
 
 export default function({ infinite }) {
-  const [data] = [[{"age": 11,
-					"firstName": "poet",
-					"lastName": "store",
-					"progress": 35,
-					"status": "relationship",
-					"subRows": undefined,
-					"visits": 85}]];
-  const [columns] = useState([
-    { Header: "Row Index", accessor: (row, index) => index, width: 100 },
-    {
-      Header: "All",
-      columns: [
-        {
-          Header: "Name",
-          columns: [
-            {
-              Header: "First Name",
-              accessor: "firstName",
-              minWidth: 140,
-              maxWidth: 200,
-              Filter: header => {
-                return (
-                  <Input
-                    placeholder='Search...  eg. "room"...'
-                    value={header.filterValue || ""}
-                    onChange={e => header.setFilter(e.target.value)}
-                  />
-                );
-              }
-            },
-            {
-              Header: "Last Name",
-              id: "lastName",
-              accessor: d => d.lastName,
-              minWidth: 140,
-              maxWidth: 200
-            }
-          ]
-        },
-        {
-          Header: "Info",
-          columns: [
-            {
-              Header: "Age",
-              accessor: "age",
-              width: 100,
-              aggregate: "average"
-            },
-            {
-              Header: "Visits",
-              accessor: "visits",
-              width: 100,
-              aggregate: "sum"
-            },
-            {
-              Header: "Profile Progress",
-              accessor: "progress",
-              aggregate: "average",
-              minWidth: 200,
-              Cell: row => (
-                <div
-                  style={{
-                    width: `${row.value}%`,
-                    minWidth: "5px",
-                    height: "20px",
-                    backgroundColor: `hsla(${row.value}, 100%, 45%, 1)`,
-                    borderRadius: "2px",
-                    transition: "all .4s ease"
-                  }}
-                />
-              )
-            },
-            {
-              Header: "Status",
-              accessor: "status",
-              width: 150,
-              Cell: row => (
-                <span>
-                  <span
-                    style={{
-                      color:
-                        row.value === "relationship"
-                          ? "#ff2e00"
-                          : row.value === "complicated"
-                          ? "#ffbf00"
-                          : "#57d500",
-                      transition: "all .5s ease"
-                    }}
-                  >
-                    &#x25cf;
-                  </span>{" "}
-                  {row.value === "relationship"
-                    ? "Relationship"
-                    : row.value === "complicated"
-                    ? `Complicated`
-                    : "Single"}
-                </span>
-              )
-            }
-          ]
-        }
-      ]
-    }
-  ]);
+
 
   return (
-    <Table
-      {...{
-        data,
-        columns,
-        infinite,
-        debug: true
-      }}
-    />
+   <div style={{ maxWidth: '100%' }}>
+        <MaterialTable
+          columns={[
+            { title: 'Adı', field: 'name' },
+            { title: 'Soyadı', field: 'surname' },
+            { title: 'Doğum Yılı', field: 'birthYear', type: 'numeric' },
+            { title: 'Doğum Yeri', field: 'birthCity', lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' } }
+          ]}
+          data={[{ name: 'Mehmt', surname: 'Baran', birthYear: 1987, birthCity: 63 },{ name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 }]}
+          title="Demo Title"
+        />
+      </div>
   );
 }
