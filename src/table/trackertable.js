@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import MaterialTable from 'material-table'
 
-export default function() {
+export default function(props) {
+
 
 
   return (
    <div style={{ maxWidth: '100%' }}>
         <MaterialTable
           columns={[
-            { title: 'Adı', field: 'name' },
-            { title: 'Soyadı', field: 'surname' },
-            { title: 'Doğum Yılı', field: 'birthYear', type: 'numeric' },
-            { title: 'Doğum Yeri', field: 'birthCity', lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' } }
+          	{ title: 'Expense', field: 'expense'},
+          	{ title: 'Type', field: 'type'},
+          	{ title: 'Amount', field: 'amount', type: 'numeric'}
           ]}
-          data={[{ name: 'Mehmt', surname: 'Baran', birthYear: 1987, birthCity: 63 },{ name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 }]}
-          title="Demo Title"
+
+          data={props.data}
+          title="Expense Tracker"
         />
       </div>
   );
