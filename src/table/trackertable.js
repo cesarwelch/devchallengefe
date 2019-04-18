@@ -8,7 +8,7 @@ export default function(props) {
           columns={[
           	{ title: 'Expense', field: 'expense'},
           	{ title: 'Type', field: 'type'},
-          	{ title: 'Amount', field: 'amount', type: 'numeric'}
+          	{ title: 'Amount', field: 'amount'}
           ]}
           data={props.data}
           title="Expense Tracker"
