@@ -9,7 +9,6 @@ it('renders without crashing', () => {
     ReactDOM.unmountComponentAtNode(div);
 });
 it('gets the same format of expenses everytime', () => {
-
     const input = [{
         expense: "Pizza",
         type: "leisure",

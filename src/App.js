@@ -79,16 +79,31 @@ class App extends Component {
       }
   }
 
+  createReport(){
+
+  }
+
   render() {
     return (
     <div className="App">
-        <header className="App-header">
-            <Expensetable data={this.state.data}/>
-                <Button onClick={this.addExpense.bind(this)} variant="info">
-                    Add Expense
-                </Button>
-        </header>
-        <ToastContainer />
+      <header className="App-header">
+          <Expensetable data={this.state.data}/>
+          <div class="container">
+              <div class="row justify-content-center">
+                  <div class="col-3">
+                      <Button onClick={this.addExpense.bind(this)} variant="info">
+                          Add Expense
+                      </Button>
+                  </div>
+                  <div class="col-3">
+                      <Button onClick={this.createReport.bind(this)} variant="info">
+                          Create Report
+                      </Button>
+                  </div>
+              </div>
+          </div>
+      </header>
+      <ToastContainer />
     </div>
     );
   }
