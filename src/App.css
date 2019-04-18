@@ -23,6 +23,25 @@
   color: #61dafb;
 }
 
+.calendar-high {
+  z-index:  11;
+}
+
+.cont{
+  display:flex;
+  align-items:flex-end;
+  height:0px;
+}
+
+.showC {
+    display: flex;
+}
+
+.hideC {
+    display: none;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
