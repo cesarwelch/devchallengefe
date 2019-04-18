@@ -31,8 +31,9 @@ class App extends Component {
     if (_.isArray(value)) {
       var result = [];
       value.map(x => {
-        x.amount = "$ " + x.amount
-        result.push(x)
+        x.amount = "$ " + x.amount;
+        x.amountForFlag = amount;
+        result.push(x);
       })
       return result;
     } else {
@@ -66,13 +67,14 @@ class App extends Component {
                   stateCopy.push({
                       expense: formValues.expense,
                       type: formValues.type,
-                      amount: "$ " + formValues.amount
+                      amount: "$ " + formValues.amount,
+                      amountForFlag: formValues.amount
                   });
                   this.setState({
                       data: stateCopy
                   }); 
                   var flag=0;
-                  this.state.data.map(data=>((data.type === 'leisure') ? flag+=data.amount : 'major'))
+                  this.state.data.map(data=>((data.type === 'leisure') ? flag+=data.amountForFlag : false))
                   if (flag > 1000) {
                     toast("spending too much money on " + formValues.expense + "… as always.");
                   } 
