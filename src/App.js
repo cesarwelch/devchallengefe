@@ -32,7 +32,7 @@ class App extends Component {
       var result = [];
       value.map(x => {
         x.amount = "$ " + x.amount;
-        x.amountForFlag = amount;
+        x.amountForFlag = x.amount;
         result.push(x);
       })
       return result;
