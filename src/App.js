@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Expensetable from "./table/trackertable";
 import Monthpicker from "./monthpicker/monthpicker";
 import Button from 'react-bootstrap/Button';
-import Collapse from 'react-bootstrap/Collapse';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
@@ -47,7 +45,7 @@ class App extends Component {
       } = await Swal.fire({
           title: 'Expense detail',
           inputPlaceholder: 'test',
-          html: '<input id="example-collapse-text"="detail-input1" placeholder="Expense name" class="swal2-input">' +
+          html: '<input id="detail-input1" placeholder="Expense name" class="swal2-input">' +
            '<select id="detail-input2" class="swal2-input" style="display: flex;">    <option value="">        Select an expense category    </option>    <option value="leisure">        Leisure    </option>    <option value="saving">        Saving    </option>    <option value="payment">        Payment    </option></select>' +
            '<input type="number" id="detail-input3" placeholder="amount" class="swal2-input inumber">',
           focusConfirm: false,
@@ -85,7 +83,7 @@ class App extends Component {
   showCalendar(){
     this.setState({ open: ((this.state.open === 'showC')? 'hideC':'showC') })
   }
-  showCalendar2(context){
+  hideCalendar(context){
     context.setState({ open: 'hideC' })
   }
 

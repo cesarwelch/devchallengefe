@@ -23,6 +23,10 @@
   color: #61dafb;
 }
 
+.hidden {
+  display: none;
+}
+
 .calendar-high {
   z-index:  11;
 }

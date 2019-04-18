@@ -35,6 +35,5 @@ it('gets the same format of expenses everytime', () => {
         type: "saving",
         amount: "$ 2000",
     }];
-    console.log(App)
     expect(mockApp.formatTableInput(input)).toEqual(result)
 });
