@@ -31,8 +31,8 @@ class App extends Component {
     if (_.isArray(value)) {
       var result = [];
       value.map(x => {
-        x.amount = "$ " + x.amount;
         x.amountForFlag = x.amount;
+        x.amount = "$ " + x.amount;
         result.push(x);
       })
       return result;
